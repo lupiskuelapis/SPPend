@@ -1,0 +1,29 @@
+<?php
+class M_Pembayaran extends CI_Model {
+    function data_pembayaran(){
+        $query = $this->db->query("select * from pembayaran");
+        return $query;
+    }
+
+    $query = $this->db->query("select * from siswa");
+        return $query;
+    function simpan(){
+        $data = array('nisn' => $this->input->post('nisn'),
+                'nis' => ($this->input->post('nis')),
+                'nama' => ($this->input->post('nama')),
+                'id_kelas' => ($this->input->post('id_kelas')),
+                'alamat' => ($this->input->post('alamat')),
+                'no_telp' => ($this->input->post('no_telp')),
+                'id_spp' => $this->input->post('id_spp'));
+        $insert = $this->db->insert('siswa',$data);
+    }
+
+    $query = $this->db->query("select * from spp");
+        return $query;
+    function simpan(){
+        $data = array('id_spp' => $this->input->post('id_spp'),
+                'tahun' => $this->input->post('tahun'),
+                'nominal' => $this->input->post('nominal'));
+        $insert = $this->db->insert('spp',$data);
+    }
+}
